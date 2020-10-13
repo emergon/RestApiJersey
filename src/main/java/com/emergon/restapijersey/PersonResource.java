@@ -36,8 +36,10 @@ public class PersonResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response create(Person p) {
         // create notification
+        String message = "Person created successfully!!!";
         service.addPerson(p);
-        return Response.status(Status.CREATED).build();
+        Response response = Response.status(Status.CREATED).entity(message).build();
+        return response;
     }
 
     @PUT
